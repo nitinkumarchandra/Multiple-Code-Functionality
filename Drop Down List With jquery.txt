@@ -1,0 +1,36 @@
+public ActionResult Demo()
+        {
+            return View();
+        }
+
+
+        public JsonResult GetData()
+        {
+            var serverdata = Db.ServerLists.ToList();
+            
+            return Json(serverdata, JsonRequestBehavior.AllowGet);
+        }
+
+
+
+ <script>
+            $(document).ready(function () {
+                debugger;
+                $.ajax({
+                    type: 'GET',
+                    url: "/Home/GetData",
+                    success: function (result) {
+                        $("#ser").html('');
+                        $("#ser").html('<option> ---Please Select--- </option>');
+                        var html;
+                        for (var i = 0; i < result.length; i++) {
+                            html += '<option value="'+result[i].Id+'"> '+result[i].Choose_Server+' </option>'
+                        }
+                        $("#ser").append(html);
+                    },
+                    error: function (error) {
+                        alert(error);
+                    }
+                });
+            });
+    </script>
