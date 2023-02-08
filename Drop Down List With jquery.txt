@@ -1,3 +1,4 @@
+This is Controller:-
 public ActionResult Demo()
         {
             return View();
@@ -11,7 +12,13 @@ public ActionResult Demo()
             return Json(serverdata, JsonRequestBehavior.AllowGet);
         }
 
+This is cshtml:-
 
+<div>
+	<select class="form-control" id="ser">
+        <option selected="selected">Select</option>
+        </select>
+</div>
 
  <script>
             $(document).ready(function () {
